@@ -228,6 +228,22 @@ Instead of using fixed values for pheromone influence (α) and heuristic distanc
 
 This improvement is **not explicitly described in the original article** and was added as an experimental enhancement.
 
+To control the exploration–exploitation balance during the ACO iterations, the pheromone and distance heuristic weights are updated dynamically according to the current iteration.
+
+$$
+\alpha_t = \alpha + \frac{t}{T_{\max}} \times 1.5
+$$
+
+$$
+\beta_t = \max \left( 1,\; \beta - \frac{t}{T_{\max}} \times 2.0 \right)
+$$
+
+where:
+- $t$ is the current ACO iteration  
+- $T_{\max}$ is the maximum number of ACO iterations  
+- $\alpha_t$ is the pheromone influence at iteration $t$  
+- $\beta_t$ is the distance heuristic influence at iteration $t$
+
 ---
 
 ## 🔢 Parameters Used
