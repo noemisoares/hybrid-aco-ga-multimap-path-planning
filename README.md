@@ -207,28 +207,12 @@ Provides intuitive validation of results.
 
 ### Adaptive Pheromone Heuristic
 
-A custom modification was implemented in: `ACO_generate_paths.m`
+A custom technical modification was implemented in the file: `ACO_generate_paths.m`.
 
 #### Description
-Instead of using fixed values for pheromone influence (α) and heuristic distance influence (β), these parameters are **adaptively adjusted over iterations**.
+Instead of using fixed values for pheromone influence (α) and distance heuristic influence (β), these parameters are **dynamically adjusted throughout the algorithm iterations**.
 
-#### Strategy
-- Early iterations:
-  - Higher influence of distance heuristic
-  - Increased exploration
-- Later iterations:
-  - Higher pheromone influence
-  - Stronger exploitation of optimal paths
-
-#### Observed Effects
-- Faster convergence
-- More stable and consistent paths
-- Reduced number of iterations
-- Improved execution time
-
-This improvement is **not explicitly described in the original article** and was added as an experimental enhancement.
-
-To control the exploration–exploitation balance during the ACO iterations, the pheromone and distance heuristic weights are updated dynamically according to the current iteration.
+To control the **exploration–exploitation balance** during the ACO process, the pheromone and distance heuristic weights are updated dynamically according to the current iteration.
 
 $$
 \alpha_t = \alpha + \frac{t}{T_{\max}} \times 1.5
@@ -239,10 +223,26 @@ $$
 $$
 
 where:
-- $t$ is the current ACO iteration  
+- $t$ represents the current ACO iteration  
 - $T_{\max}$ is the maximum number of ACO iterations  
 - $\alpha_t$ is the pheromone influence at iteration $t$  
 - $\beta_t$ is the distance heuristic influence at iteration $t$
+
+#### Strategy
+- Early iterations:
+  - Higher influence of the distance heuristic
+  - Increased exploration of the search space
+- Later iterations:
+  - Higher pheromone influence
+  - Stronger exploitation of the best paths found
+
+#### Observed Effects
+- Faster convergence
+- More stable and consistent paths
+- Reduction in the required number of iterations
+- Improved overall execution time
+
+This modification is **not explicitly described in the original article** and was introduced as an experimental enhancement.
 
 ---
 
