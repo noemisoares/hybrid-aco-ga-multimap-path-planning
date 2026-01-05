@@ -183,8 +183,8 @@ This strategy significantly reduces computational cost compared to full re-plann
 Visualizes the map and final path.
 
 Color scheme:
-- Black → Obstacles
-- White → Free space
+- Black → Free space
+- White → Obstacles
 - Blue → Start
 - Red → Final path
 
